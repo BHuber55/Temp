@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Chatt Stream</title>
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+    </head>
+
+
+    <body>
+        <iframe id="command" style="width=0; height=0; border=0; border:none";></iframe>
+
+        <h1 id="chatt">Chatt Zoo</h1>
+		
+<!-- Stream 1 -->
+        <div id="container1">
+          <iframe class="iframe" id="stream1" src="http://10.199.3.51/cgi-bin/mjpg/video.cgi?[0]&subtype=1" allowfullscreen webkitallowfullscreen frameborder='1'></iframe>
+          <div>
+            <button class="fsbutton" id="fs1" onclick=newFS1()>Fullscreen</button>
+          </div>
+        </div>
+
+        <button type="button" class="b" id="gAudio1" value="C" onclick=setURL("http://10.199.3.51/cgi-bin/audio.cgi?action=getAudio&httptype=singlepart&channel=1")>Get Audio</button>
+
+		
+        <button type="button" class="ufsbutton" id="ufsbutton1" value="C" onclick=uFS1()>UN-Fullscreen</button>
+
+<!-- Location of elements scripts-->
+        <script src="js/locations.js"></script>
+
+<!-- Fullscreen Scripts -->
+        <script src="js/fullscreen.js"></script>
+
+        <script>
+			var cmd = document.getElementById('command');
+			var chatt = document.getElementById('chatt');
+			var frame = document.getElementById('stream1');
+			var fsButton = document.getElementById('fs1');
+			var gaButton = document.getElementById('gAudio1');
+			var ufsButton = document.getElementById('ufsbutton1');
+			
+			cmd.width = 640;
+			cmd.height = 120;
+			cmd.style.left = "640px";
+			cmd.style.top = "800px";
+			cmd.style.position = "absolute";
+			
+			chatt.style.left = "865px";
+			chatt.style.top = "100px";
+			chatt.style.position = "absolute";
+			
+			frame.width = 640;
+			frame.height = 480;
+			frame.style.left = "620px";
+			frame.style.top = "300px";
+			frame.style.position = "absolute";
+			
+			fsButton.style.left = "1175px";	// +555 from frame left
+			fsButton.style.top = "760px";	// +460 from frame top
+			fsButton.style.position = "absolute";
+			
+			gaButton.style.left = "840px";	// +220
+			gaButton.style.top = "825px";	// +525
+			gaButton.style.position = "absolute";
+			
+			ufsButton.style.left = "1800px";
+			ufsButton.style.top = "975px";
+			ufsButton.style.position = "absolute";
+			
+            function setURL(url){
+              document.getElementById('command').src = url;
+            };
+        </script>
+    </body>
+</html>
