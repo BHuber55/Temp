@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+	<body>
+		<!-- Browsing files on the server -->
+		<table>
+			<th>File Name</th>
+			<th>File Date</th>
+			<th>Play</th>
+
+			<?php
+				$path = 'uploads/'
+					if($handle = opendir(path)) {
+						while(false !== ($entry = readdir($handle))) {
+							echo "<tr>\n";
+								echo "<td>\n";
+									echo "$entry\n";
+								echo "</td>\n";
+
+								echo "<td>\n";
+									$time = filemtime($entry)
+									echo "$time\n"
+								echo "</td>\n";
+
+								echo "<td>\n";
+									echo "LINK TO PLAY\n";
+								echo "</td>\n";
+							echo "</tr>\n";
+						// I can make this a link so that it auto fills the iframe or whatever ya know.
+						}
+					}
+
+				closedir($handle);
+			?>
+		</table>
+
+
+	</body>
+</html>
